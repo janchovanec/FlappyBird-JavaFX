@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java1.cho0252.GameController">
+   <children>
+      <Canvas fx:id="canvas" height="800.0" width="600.0" />
+      <Text fx:id="scoreField" fill="WHITE" layoutX="230.0" layoutY="128.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="0" textAlignment="CENTER" wrappingWidth="140.0">
+         <font>
+            <Font name="Arial Bold" size="82.0" />
+         </font>
+      </Text>
+      <Pane fx:id="gameOverPane" layoutY="171.0" prefHeight="317.0" prefWidth="600.0" visible="false">
+         <children>
+            <TextField fx:id="nameField" alignment="CENTER" prefHeight="100.0" prefWidth="600.0" promptText="ENTER NAME" styleClass="transparent-text-field" stylesheets="@buttonStyle.css">
+               <font>
+                  <Font name="Arial" size="71.0" />
+               </font>
+            </TextField>
+            <Button fx:id="saveButton" layoutX="32.0" layoutY="203.0" mnemonicParsing="false" onAction="#onSaveButtonClicked" prefHeight="91.0" prefWidth="210.0" styleClass="duolingo-button" stylesheets="@buttonStyle.css" text="SAVE" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial" size="67.0" />
+               </font>
+            </Button>
+            <Button fx:id="menuButton" layoutX="359.0" layoutY="205.0" mnemonicParsing="false" onAction="#onMenuButtonClicked" prefHeight="91.0" prefWidth="210.0" styleClass="duolingo-button" stylesheets="@buttonStyle.css" text="MENU" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial" size="67.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</Pane>
