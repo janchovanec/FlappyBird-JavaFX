@@ -13,7 +13,7 @@ import javafx.scene.text.Text;
  */
 public class GameController {
 
-    private GameScene gameScene;
+    private IGameScene gameScene;
     private AnimationTimer timer;
     private GameControllerListener gameControllerListener;
 
@@ -51,6 +51,7 @@ public class GameController {
             public void onGameEnd() {
                 GameController.this.pauseGame();
             }
+
             @Override
             public void onScoreUpdate(int score) {
                 scoreField.setText(Integer.toString(score));
@@ -71,11 +72,10 @@ public class GameController {
 
     @FXML
     public void onSaveButtonClicked() {
-        FileManager fileManager = new FileManager();
         String name = nameField.getText();
         name = name.replace(";", "");
         int score = Integer.parseInt(scoreField.getText());
-        fileManager.saveScore(name, score);
+        FileManager.saveScore(name, score);
         gameControllerListener.onGameEnd(birdSkin, scrollSpeed);
     }
 

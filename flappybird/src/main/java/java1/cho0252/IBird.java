@@ -7,6 +7,8 @@ import javafx.scene.shape.Rectangle;
  */
 public interface IBird extends RenderableUpdateable {
     public void jump();
+
     public boolean collidesWith(Rectangle hitbox);
+
     public boolean isOutOfBounds();
 }

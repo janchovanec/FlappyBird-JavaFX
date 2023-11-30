@@ -1,6 +1,5 @@
 package java1.cho0252;
 
-
 import java.util.LinkedList;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -43,11 +42,11 @@ public class MenuController {
     @FXML
     private Pane highscoresPane;
     @FXML
-    private TableView<Pair<String,Integer>> highscoresTable;
+    private TableView<Pair<String, Integer>> highscoresTable;
     @FXML
-    private TableColumn<Pair<String,Integer>, String> nameColumn;
+    private TableColumn<Pair<String, Integer>, String> nameColumn;
     @FXML
-    private TableColumn<Pair<String,Integer>, Integer> scoreColumn;
+    private TableColumn<Pair<String, Integer>, Integer> scoreColumn;
 
     @FXML
     private ImageView birdSkinDefault;
@@ -57,12 +56,12 @@ public class MenuController {
     private ImageView birdSkinJapan;
     @FXML
     private ImageView birdSkinRobot;
-    
+
     private MenuListener menuListener;
 
     private int birdSkin;
     private double scrollSpeed;
-    
+
     public MenuController() {
         birdSkin = 0;
         scrollSpeed = 100;
@@ -73,7 +72,8 @@ public class MenuController {
     public void initialize() {
         Image image = new Image(getClass().getResourceAsStream("background1.png"), 0, 800, false, false);
         BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, true); // Set crop to true
-        BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
+        BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.REPEAT,
+                BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
         Background background = new Background(backgroundImage);
         menuPane.setBackground(background);
         highscoresPane.setBackground(background);
@@ -98,11 +98,10 @@ public class MenuController {
     }
 
     private void initializeHighscoresTable() {
-        FileManager fileManager = new FileManager();
         highscoresTable.setItems(FXCollections.observableList(new LinkedList<>()));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<Pair<String,Integer>, String>("Key"));
-        scoreColumn.setCellValueFactory(new PropertyValueFactory<Pair<String,Integer>, Integer>("Value"));
-        highscoresTable.getItems().addAll(fileManager.loadScores());
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Pair<String, Integer>, String>("Key"));
+        scoreColumn.setCellValueFactory(new PropertyValueFactory<Pair<String, Integer>, Integer>("Value"));
+        highscoresTable.getItems().addAll(FileManager.loadScores());
     }
 
     @FXML
@@ -113,7 +112,7 @@ public class MenuController {
     }
 
     @FXML
-    public void onHighScoresMenuButtonClicked () {
+    public void onHighScoresMenuButtonClicked() {
         menuPane.setVisible(true);
         highscoresPane.setVisible(false);
     }

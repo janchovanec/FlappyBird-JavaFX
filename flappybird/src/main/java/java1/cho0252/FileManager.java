@@ -1,8 +1,11 @@
 package java1.cho0252;
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,51 +15,36 @@ import javafx.util.Pair;
  * Manages loading and saving scores using IO streams.
  */
 public class FileManager {
-    private final String SAVE_FILE = "scores.txt";
-    private final char SEPARATOR = ';';
+    private static final String SAVE_FILE = "scores.txt";
+    private static final char SEPARATOR = ';';
 
-    public FileManager() {
-    }
-
-    public void saveScore(String name, int score) {
+    public static void saveScore(String name, int score) {
         try {
-            FileOutputStream fileOutputStream = new FileOutputStream(SAVE_FILE, true);
-            String scoreString = name + SEPARATOR + score + "\n";
-            fileOutputStream.write(scoreString.getBytes());
-            fileOutputStream.close();
+            PrintWriter writer = new PrintWriter(new FileOutputStream(SAVE_FILE, true));
+            String scoreString = name + SEPARATOR + score;
+            writer.println(scoreString);
+            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public List<Pair<String,Integer>> loadScores() {
-        List<Pair<String,Integer>> scores = new ArrayList<Pair<String,Integer>>();
+    public static List<Pair<String, Integer>> loadScores() {
+        List<Pair<String, Integer>> scores = new ArrayList<Pair<String, Integer>>();
         try {
-            FileInputStream fileInputStream = new FileInputStream(SAVE_FILE);
-            String name = new String();
-            String score = new String();
-            boolean isScore = false;
-            int c;
-            while ((c = fileInputStream.read()) != -1) {
-                if (c == '\n') {
-                    isScore = false;
-                    scores.add(new Pair<String,Integer>(name, Integer.parseInt(score)));
-                    name = new String();
-                    score = new String();
-                } else if (c == SEPARATOR) {
-                    isScore = true;
-                } else if (isScore) {
-                    score += (char) c;
-                } else {
-                    name += (char) c;
-                }
+            BufferedReader reader = new BufferedReader(new FileReader(SAVE_FILE));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(String.valueOf(SEPARATOR));
+                String name = parts[0];
+                int score = Integer.parseInt(parts[1]);
+                scores.add(new Pair<String, Integer>(name, score));
             }
-            fileInputStream.close();
+            reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
         return scores;
     }
-        
-        
+
 }

@@ -44,7 +44,8 @@ public class Bird implements IBird {
                 image = new Image(getClass().getResourceAsStream("flappybird.png"), BIRD_SIZE, BIRD_SIZE, false, true);
                 break;
         }
-        hitbox = new Circle(position.getX() + image.getWidth() / 1.75, position.getY() + image.getHeight() / 1.8, image.getWidth() / 2.45);
+        hitbox = new Circle(position.getX() + image.getWidth() / 1.75, position.getY() + image.getHeight() / 1.8,
+                image.getWidth() / 2.45);
     }
 
     @Override

@@ -24,7 +24,7 @@ public class GameBackground implements IGameBackground {
         this.positionA = new Point2D(0, 0);
         this.positionB = new Point2D(image1.getWidth(), 0);
     }
-    
+
     @Override
     public void render(GraphicsContext gc) {
         gc.drawImage(image1, positionA.getX(), positionA.getY());
@@ -41,8 +41,8 @@ public class GameBackground implements IGameBackground {
     }
 
     private void scroll(double time) {
-        positionA = positionA.add(-scrollSpeed*SCROLL_SPEED_MODIFIER*time,0);
-        positionB = positionB.add(-scrollSpeed*SCROLL_SPEED_MODIFIER*time,0);
+        positionA = positionA.add(-scrollSpeed * SCROLL_SPEED_MODIFIER * time, 0);
+        positionB = positionB.add(-scrollSpeed * SCROLL_SPEED_MODIFIER * time, 0);
         if (positionA.getX() < -image1.getWidth()) {
             positionA = new Point2D(image1.getWidth(), 0);
         }

@@ -8,7 +8,7 @@ import javafx.scene.canvas.GraphicsContext;
 /**
  * Manages the overall game scene and game loop.
  */
-public class GameScene {
+public class GameScene implements IGameScene {
 
     private IBird bird;
     private LinkedList<IPipe> pipes;
@@ -26,37 +26,12 @@ public class GameScene {
         background = new GameBackground();
     }
 
+    @Override
     public void initialize(double scrollSpeed) {
         this.scrollSpeed = scrollSpeed;
         for (int x = 1; x < 6; x++) {
             Point2D pipeHeights = generatePipeHeight();
-            pipes.add(new Pipe(pipeHeights.getX(), pipeHeights.getY(), 250*x, scrollSpeed, new EmptyPipeListener(){
-                @Override
-                public void onPipePassed() {
-                    GameScene.this.score++;
-                    GameScene.this.gameListener.onScoreUpdate(GameScene.this.score);
-                }
-            }));
-        };
-        background.setScrollSpeed(scrollSpeed);
-    }
-
-    public void setBirdSkin(int birdSkin) {
-        bird = new Bird(birdSkin);
-    }
-
-    private Point2D generatePipeHeight() {
-        double topPipeHeight = Math.random() * 400 + 100;
-        double bottomPipeHeight = 800 - topPipeHeight - 200;
-
-        return new Point2D(topPipeHeight, bottomPipeHeight);
-    }
-
-    private void placePipe() {
-        if (pipes.getFirst().isOffScreen()) {
-            Point2D pipeHeights = generatePipeHeight();
-            pipes.removeFirst();
-            pipes.add(new Pipe(pipeHeights.getX(), pipeHeights.getY(), scrollSpeed, new EmptyPipeListener(){
+            pipes.add(new Pipe(pipeHeights.getX(), pipeHeights.getY(), 250 * x, scrollSpeed, new EmptyPipeListener() {
                 @Override
                 public void onPipePassed() {
                     GameScene.this.score++;
@@ -64,8 +39,16 @@ public class GameScene {
                 }
             }));
         }
+        ;
+        background.setScrollSpeed(scrollSpeed);
     }
-    
+
+    @Override
+    public void setBirdSkin(int birdSkin) {
+        bird = new Bird(birdSkin);
+    }
+
+    @Override
     public void simulate(double deltaT) {
         background.update(deltaT);
         if (bird.isOutOfBounds()) {
@@ -75,13 +58,14 @@ public class GameScene {
         for (IPipe pipe : pipes) {
             pipe.update(deltaT);
             if (bird.collidesWith(pipe.getHitboxTop()) ||
-                bird.collidesWith(pipe.getHitboxBot())) {
-                    endGame();
-                }
+                    bird.collidesWith(pipe.getHitboxBot())) {
+                endGame();
+            }
         }
         bird.update(deltaT);
     }
 
+    @Override
     public void setupKeyboardInput(Scene scene) {
         scene.setOnKeyPressed(event -> {
             switch (event.getCode()) {
@@ -98,6 +82,7 @@ public class GameScene {
         });
     }
 
+    @Override
     public void render(GraphicsContext gc) {
         background.render(gc);
         bird.render(gc);
@@ -106,11 +91,33 @@ public class GameScene {
         }
     }
 
+    @Override
+    public void setGameListener(GameListener gameListener) {
+        this.gameListener = gameListener;
+    }
+
     private void endGame() {
         gameListener.onGameEnd();
     }
 
-    public void setGameListener(GameListener gameListener) {
-        this.gameListener = gameListener;
+    private void placePipe() {
+        if (pipes.getFirst().isOffScreen()) {
+            Point2D pipeHeights = generatePipeHeight();
+            pipes.removeFirst();
+            pipes.add(new Pipe(pipeHeights.getX(), pipeHeights.getY(), scrollSpeed, new EmptyPipeListener() {
+                @Override
+                public void onPipePassed() {
+                    GameScene.this.score++;
+                    GameScene.this.gameListener.onScoreUpdate(GameScene.this.score);
+                }
+            }));
+        }
+    }
+
+    private Point2D generatePipeHeight() {
+        double topPipeHeight = Math.random() * 400 + 100;
+        double bottomPipeHeight = 800 - topPipeHeight - 200;
+
+        return new Point2D(topPipeHeight, bottomPipeHeight);
     }
 }

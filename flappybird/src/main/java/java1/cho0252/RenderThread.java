@@ -8,13 +8,13 @@ import javafx.scene.canvas.GraphicsContext;
  * Thread that handles the drawing of the game.
  */
 public class RenderThread extends AnimationTimer {
-    	
-    private final GraphicsContext gc;
+
+	private final GraphicsContext gc;
 	private final Canvas canvas;
-	private final GameScene gameScene;
+	private final IGameScene gameScene;
 	private long lastTime;
 
-	public RenderThread(Canvas canvas, GameScene gameScene) {
+	public RenderThread(Canvas canvas, IGameScene gameScene) {
 		this.canvas = canvas;
 		this.gc = canvas.getGraphicsContext2D();
 		this.gameScene = gameScene;
@@ -27,8 +27,8 @@ public class RenderThread extends AnimationTimer {
 			gameScene.simulate(deltaT);
 		}
 		gameScene.render(gc);
-		lastTime= now;
+		lastTime = now;
 
 	}
-    
+
 }

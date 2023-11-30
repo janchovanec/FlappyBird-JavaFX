@@ -10,7 +10,7 @@ public interface IPipe extends RenderableUpdateable {
     public boolean isOffScreen();
 
     public Rectangle getHitboxTop();
-    
+
     public Rectangle getHitboxBot();
-    
+
 }

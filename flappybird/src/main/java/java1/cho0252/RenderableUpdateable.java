@@ -7,5 +7,6 @@ import javafx.scene.canvas.GraphicsContext;
  */
 public interface RenderableUpdateable {
     public void update(double time);
+
     public void render(GraphicsContext gc);
 }
