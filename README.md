@@ -13,7 +13,8 @@ Maven 3.6.0 or higher
 Clone the repository:
 ```
 git clone https://github.com/janchovanec/FlappyBird-JavaFX.git
-cd flappy-bird-clone
+cd FlappyBird-JavaFX
+cd flappybird
 ```
 
 Use Maven to build the project and resolve dependencies:
@@ -27,8 +28,7 @@ mvn javafx:run
 ```
 # Usage
 ## Controls
-Press the SPACE bar to make the bird flap its wings and rise.
-The bird will automatically fall due to gravity when no input is provided.
+Press the SPACE bar to make the bird rise.
 Avoid the pipes to keep scoring points.
 ## Game Over
 The game ends when the bird collides with a pipe or the ground.
