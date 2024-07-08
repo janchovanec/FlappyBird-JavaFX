@@ -6,7 +6,7 @@ created as a school assignment to demonstrate proficiency in Java programming.
 # Installation
 ## Prerequisites
 Before you can run the project, ensure you have the following installed on your system:
-Java Development Kit (JDK) 11 or higher
+Java Development Kit (JDK) 21 or higher
 Maven 3.6.0 or higher
 
 ## Steps to Install
@@ -33,3 +33,11 @@ Avoid the pipes to keep scoring points.
 ## Game Over
 The game ends when the bird collides with a pipe or the ground.
 The final score will be displayed on the screen.
+
+# Screenshots
+
+![screenshot](screenshots/menu.png)
+![screenshot](screenshots/skins.png)
+![screenshot](screenshots/highscores.png)
+![screenshot](screenshots/gameplay.png)
+![screenshot](screenshots/gameover.png)
