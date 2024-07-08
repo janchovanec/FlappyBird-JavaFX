@@ -1,11 +1,11 @@
 
-.duolingo-button {
+.duo-button {
     -fx-background-color: rgb(255, 155, 4); 
     -fx-text-fill: white;
     -fx-font-family: 'Arial', sans-serif; 
     -fx-text-stroke: rgb(0, 0, 0); 
     -fx-text-stroke-width: 10px; 
-    -fx-font-size: 60px;
+    -fx-font-size: 54px;
     -fx-font-weight: bold;
     -fx-border-radius: 20; 
     -fx-background-radius: 20; 
@@ -14,24 +14,24 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 5, 0, 0, 5); 
 }
 
-.duolingo-button .text {
+.duo-button .text {
     -fx-effect: dropshadow(one-pass-box, black, 7, 1, 0, 0);
 }
 
 
-.duolingo-button:hover {
+.duo-button:hover {
     -fx-background-color: rgb(255, 155, 4); 
 }
 
 
-.duolingo-button:pressed {
+.duo-button:pressed {
     -fx-background-color: rgb(211, 127, 0); 
     -fx-translate-y: 2px; 
     -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.6), 3, 0, 0, 3); 
 }
 
 
-.duolingo-button:disabled {
+.duo-button:disabled {
     -fx-background-color: #cccccc; 
     -fx-text-fill: #666666;
     -fx-effect: none; 

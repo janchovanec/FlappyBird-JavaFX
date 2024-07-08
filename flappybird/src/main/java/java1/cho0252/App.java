@@ -8,7 +8,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * Flappy Bird
+ * Flappy Bird clone
+ * Jan Chovanec
  */
 public class App extends Application {
     private MenuController menuController;

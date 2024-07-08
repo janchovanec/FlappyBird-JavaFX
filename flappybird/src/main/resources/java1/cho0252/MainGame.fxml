@@ -22,14 +22,14 @@
                   <Font name="Arial" size="71.0" />
                </font>
             </TextField>
-            <Button fx:id="saveButton" layoutX="32.0" layoutY="203.0" mnemonicParsing="false" onAction="#onSaveButtonClicked" prefHeight="91.0" prefWidth="210.0" styleClass="duolingo-button" stylesheets="@buttonStyle.css" text="SAVE" textAlignment="CENTER">
+            <Button fx:id="saveButton" layoutX="32.0" layoutY="203.0" mnemonicParsing="false" onAction="#onSaveButtonClicked" prefHeight="91.0" prefWidth="210.0" styleClass="duo-button" stylesheets="@buttonStyle.css" text="SAVE" textAlignment="CENTER">
                <font>
-                  <Font name="Arial" size="67.0" />
+                  <Font name="Arial" size="54.0" />
                </font>
             </Button>
-            <Button fx:id="menuButton" layoutX="359.0" layoutY="205.0" mnemonicParsing="false" onAction="#onMenuButtonClicked" prefHeight="91.0" prefWidth="210.0" styleClass="duolingo-button" stylesheets="@buttonStyle.css" text="MENU" textAlignment="CENTER">
+            <Button fx:id="menuButton" layoutX="359.0" layoutY="205.0" mnemonicParsing="false" onAction="#onMenuButtonClicked" prefHeight="91.0" prefWidth="210.0" styleClass="duo-button" stylesheets="@buttonStyle.css" text="MENU" textAlignment="CENTER">
                <font>
-                  <Font name="Arial" size="67.0" />
+                  <Font name="Arial" size="54.0" />
                </font>
             </Button>
          </children>

@@ -16,9 +16,9 @@
    <children>
       <Pane fx:id="menuPane" prefHeight="800.0" prefWidth="600.0">
          <children>
-            <Button fx:id="startButton" layoutX="87.0" layoutY="539.0" mnemonicParsing="false" onAction="#onStartButtonClicked" styleClass="duolingo-button" stylesheets="@buttonStyle.css" text="START GAME" />
-            <Button fx:id="settingsButton" layoutX="338.0" layoutY="658.0" mnemonicParsing="false" onAction="#onSettingsButtonClicked" style="-fx-font-size: 29;" styleClass="duolingo-button" stylesheets="@buttonStyle.css" text="SETTINGS" />
-            <Button fx:id="highscoresButton" layoutX="87.0" layoutY="658.0" mnemonicParsing="false" onAction="#onHighScoresButtonClicked" style="-fx-font-size: 29;" styleClass="duolingo-button" stylesheets="@buttonStyle.css" text="HIGH SCORES" />
+            <Button fx:id="startButton" layoutX="87.0" layoutY="539.0" mnemonicParsing="false" onAction="#onStartButtonClicked" styleClass="duo-button" stylesheets="@buttonStyle.css" text="START GAME" />
+            <Button fx:id="settingsButton" layoutX="338.0" layoutY="658.0" mnemonicParsing="false" onAction="#onSettingsButtonClicked" style="-fx-font-size: 27;" styleClass="duo-button" stylesheets="@buttonStyle.css" text="SETTINGS" />
+            <Button fx:id="highscoresButton" layoutX="82.0" layoutY="658.0" mnemonicParsing="false" onAction="#onHighScoresButtonClicked" style="-fx-font-size: 27;" styleClass="duo-button" stylesheets="@buttonStyle.css" text="HIGH SCORES" />
             <Text fill="#ff9000" layoutX="39.0" layoutY="186.0" stroke="BLACK" strokeLineCap="BUTT" strokeType="OUTSIDE" strokeWidth="2.0" text="FLAPPY &#10;&#9;   BIRD">
                <font>
                   <Font name="Arial Bold" size="95.0" />
@@ -53,7 +53,7 @@
                 <TableColumn fx:id="scoreColumn" editable="false" minWidth="0.0" prefWidth="243.0" text="Score" />
               </columns>
             </TableView>
-            <Button fx:id="highScoresMenuButton" layoutX="211.0" layoutY="696.0" mnemonicParsing="false" onAction="#onHighScoresMenuButtonClicked" style="-fx-font-size: 50;" styleClass="duolingo-button" stylesheets="@buttonStyle.css" text="MENU" />
+            <Button fx:id="highScoresMenuButton" layoutX="211.0" layoutY="696.0" mnemonicParsing="false" onAction="#onHighScoresMenuButtonClicked" style="-fx-font-size: 50;" styleClass="duo-button" stylesheets="@buttonStyle.css" text="MENU" />
          </children>
       </Pane>
       <Pane fx:id="settingsPane" prefHeight="800.0" prefWidth="600.0" visible="false">
@@ -86,7 +86,7 @@
                   <DropShadow height="26.38" offsetX="3.0" offsetY="4.0" radius="12.8125" width="26.87" />
                </effect>
             </Text>
-            <Button fx:id="settingsMenuButton" layoutX="211.0" layoutY="683.0" mnemonicParsing="false" onAction="#onSettingsMenuButtonClicked" style="-fx-font-size: 50;" styleClass="duolingo-button" stylesheets="@buttonStyle.css" text="MENU" />
+            <Button fx:id="settingsMenuButton" layoutX="211.0" layoutY="683.0" mnemonicParsing="false" onAction="#onSettingsMenuButtonClicked" style="-fx-font-size: 50;" styleClass="duo-button" stylesheets="@buttonStyle.css" text="MENU" />
             <Slider fx:id="scrollSpeedSlider" blockIncrement="1.0" layoutX="81.0" layoutY="594.0" max="300.0" prefHeight="25.0" prefWidth="437.0" stylesheets="@buttonStyle.css" value="100.0" />
             <Text fill="#ff9000" layoutX="249.0" layoutY="579.0" stroke="BLACK" strokeLineCap="BUTT" strokeType="OUTSIDE" strokeWidth="2.0" style="-fx-font-size: 30;" text="SPEED">
                <font>
